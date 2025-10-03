@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Us ❤️</title>
+  <style>
+    body {
+      background-color: #FFB6C1;
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #FF69B4;
+      text-align: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 36px;
+      text-shadow: 1px 1px white;
+      margin-bottom: 40px;
+    }
+
+    .gif-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .gif-container img {
+      max-width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #FF69B4;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #E37383;
+      transform: rotate(45deg);
+      animation: floatUp 8s infinite;
+      opacity: 0.7;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #E37383;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-20vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Us now you're mine 💖</h1>
+
+  <div class="gif-container">
+    <img src="https://media1.tenor.com/m/zlVvLvvUxGgAAAAd/anime-kissing-classic.gif" alt="Anime Kiss 1">
+    <img src="https://media1.tenor.com/m/5DXE4XQwv9UAAAAd/kissing-anime-kiss.gif" alt="Anime Kiss 3">
+    <img src="https://media1.tenor.com/m/Es8Ln8Lh3Q8AAAAd/kissing-couple.gif" alt="Real Couple Kiss">
+  </div>
+
+  <script>
+    // create falling hearts
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = `${Math.random() * 100}%`;
+      heart.style.animationDuration = `${5 + Math.random() * 5}s`;
+      heart.style.animationDelay = `${Math.random() * 5}s`;
+      document.body.appendChild(heart);
+    }
+  </script>
+
+</body>
+</html>

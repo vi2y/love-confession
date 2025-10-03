@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Please Be Mine</title>
+  <style>
+    body {
+      background-color: #FFB6C1;
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    h1 {
+      color: #FF69B4;
+      margin-bottom: 40px;
+      text-shadow: 1px 1px #fff;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      padding: 20px 40px;
+      font-size: 24px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background-color: #FF69B4;
+      color: white;
+      transition: transform 0.3s ease;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #E37383;
+      transform: rotate(45deg);
+      animation: float 10s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #E37383;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Please be mine Joel?</h1> 
+<p><img src="https://media.giphy.com/media/JFmIDQodMScJW/giphy.gif" alt="Kiss 4"></p>
+
+  <div class="button-container">
+    <button id="yesBtn" onclick="goToYes()">Yes</button>
+    <button onclick="makeYesBigger()">No</button>
+  </div>
+
+  <script>
+    function goToYes() {
+      window.location.href = "yes.html"; // Link to the GIF slideshow page
+    }
+
+    function makeYesBigger() {
+      const yesBtn = document.getElementById("yesBtn");
+      let currentScale = yesBtn.dataset.scale ? parseFloat(yesBtn.dataset.scale) : 1;
+      currentScale += 0.1;
+      yesBtn.dataset.scale = currentScale;
+      yesBtn.style.transform = `scale(${currentScale})`;
+    }
+
+    // Create floating hearts
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = `${Math.random() * 100}%`;
+      heart.style.top = `${Math.random() * 100}%`;
+      heart.style.animationDuration = `${5 + Math.random() * 5}s`;
+      document.body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
